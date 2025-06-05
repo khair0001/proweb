@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Jun 2025 pada 13.49
+-- Waktu pembuatan: 05 Jun 2025 pada 06.32
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `reshina_db`
+-- Database: `reshina_db3`
 --
 
 -- --------------------------------------------------------
@@ -56,7 +56,18 @@ INSERT INTO `image_produk` (`id`, `id_produk`, `file_name`, `is_primary`, `creat
 (15, 14, '68402086b144d_1749033094.jpeg', 1, '2025-06-04 18:31:34'),
 (16, 15, '6840216f466c7_1749033327.png', 1, '2025-06-04 18:35:27'),
 (17, 16, '68402197b3b87_1749033367.jpeg', 1, '2025-06-04 18:36:07'),
-(18, 17, '684032a3172b0_1749037731.jpeg', 1, '2025-06-04 19:48:51');
+(18, 17, '684032a3172b0_1749037731.jpeg', 1, '2025-06-04 19:48:51'),
+(19, 18, '68403e1bbef45_1749040667.jpg', 1, '2025-06-04 20:37:47'),
+(20, 19, '684047c7360f8_1749043143.jpg', 1, '2025-06-04 21:19:03'),
+(21, 20, '68404936e79cb_1749043510.jpg', 1, '2025-06-04 21:25:10'),
+(22, 21, '68404a74853ef_1749043828.jpg', 1, '2025-06-04 21:30:28'),
+(23, 22, '68404d7fbe5f5_1749044607.jpg', 1, '2025-06-04 21:43:27'),
+(24, 23, '684050393b902_1749045305.jpg', 1, '2025-06-04 21:55:05'),
+(25, 24, '6840a29ca1507_1749066396.jpg', 1, '2025-06-05 03:46:36'),
+(26, 24, '6840a2c9204ef_1749066441.jpg', 0, '2025-06-05 03:47:21'),
+(27, 25, '6840d8dd28f81_1749080285.jpg', 1, '2025-06-05 07:38:05'),
+(28, 26, '6840dc51629b8_1749081169.avif', 1, '2025-06-05 07:52:49'),
+(29, 27, '6840fec93f8f6_1749089993.jpg', 1, '2025-06-05 10:19:53');
 
 -- --------------------------------------------------------
 
@@ -122,11 +133,17 @@ CREATE TABLE `keranjang` (
 --
 
 INSERT INTO `keranjang` (`id`, `id_produk`, `id_user`, `waktu`, `selected`) VALUES
-(1, 1, 2, '2025-06-04 08:16:02', 0),
+(1, 1, 2, '2025-06-04 08:16:02', 1),
 (2, 2, 1, '2025-06-04 08:25:38', 1),
 (3, 12, 1, '2025-06-04 18:25:22', 1),
 (4, 14, 1, '2025-06-04 18:31:54', 1),
-(6, 16, 3, '2025-06-04 18:40:39', 0);
+(6, 16, 3, '2025-06-04 18:40:39', 0),
+(7, 10, 5, '2025-06-04 22:29:45', 1),
+(8, 18, 5, '2025-06-04 23:15:43', 0),
+(10, 22, 6, '2025-06-05 01:50:43', 0),
+(11, 25, 3, '2025-06-05 07:39:52', 1),
+(12, 27, 2, '2025-06-05 10:29:05', 1),
+(15, 18, 2, '2025-06-05 10:55:29', 1);
 
 -- --------------------------------------------------------
 
@@ -176,7 +193,11 @@ INSERT INTO `laporan_transaksi` (`id_laporan`, `id_pembayaran`, `tanggal_transak
 (2, 'jqpz3fDXV9w', '2025-06-04 14:04:29', 2, 1, 123456789.00, 'ngirim', NULL),
 (3, 'gK6jJk0pPku', '2025-06-04 15:28:41', 1, 2, 23456.00, 'gudang', NULL),
 (4, 'lHpAyYhh8rM', '2025-06-04 16:01:33', 2, 1, 123456789.00, 'ngirim', NULL),
-(5, 'Ouao9ucG3Ptf', '2025-06-04 16:03:55', 1, 2, 23456.00, 'ngirim', NULL);
+(5, 'Ouao9ucG3Ptf', '2025-06-04 16:03:55', 1, 2, 23456.00, 'ngirim', NULL),
+(6, 'gdrK9f03d4', '2025-06-05 07:40:18', 3, 1, 999999999999.00, 'gudang', NULL),
+(7, 'av1wgC4S7M', '2025-06-05 10:30:34', 2, 7, 200000.00, 'ngirim', NULL),
+(8, 'yroMBLkcAB', '2025-06-05 10:48:02', 2, 7, 200000.00, 'gudang', NULL),
+(9, 'qNOmdwewam', '2025-06-05 10:55:40', 2, 4, 0.00, 'gudang', NULL);
 
 -- --------------------------------------------------------
 
@@ -218,8 +239,27 @@ INSERT INTO `notifications` (`id`, `user_id`, `sender_id`, `product_id`, `title`
 (16, 1, NULL, 14, 'Anda Menang Lelang', 'Selamat, Anda memenangkan lelang produk Dominique Curtis dengan tawaran Rp 12.345.678', 1, '2025-06-04 10:35:10'),
 (17, 2, 1, 14, 'Lelang Selesai: Pemenang', 'Lelang produk \'Dominique Curtis\' telah selesai. Pemenangnya adalah ahmad dengan tawaran Rp 12.345.678.', 1, '2025-06-04 10:35:10'),
 (18, 2, 1, 16, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 12.456 dari ahmad (email: ahmad@gmail.com, HP: +628312316556)', 1, '2025-06-04 10:36:27'),
-(19, 1, NULL, 16, 'Anda Menang Lelang', 'Selamat, Anda memenangkan lelang produk Boris Pena dengan tawaran Rp 12.456', 0, '2025-06-04 10:38:06'),
-(20, 2, 1, 16, 'Lelang Selesai: Pemenang', 'Lelang produk \'Boris Pena\' telah selesai. Pemenangnya adalah ahmad dengan tawaran Rp 12.456.', 0, '2025-06-04 10:38:06');
+(19, 1, NULL, 16, 'Anda Menang Lelang', 'Selamat, Anda memenangkan lelang produk Boris Pena dengan tawaran Rp 12.456', 1, '2025-06-04 10:38:06'),
+(20, 2, 1, 16, 'Lelang Selesai: Pemenang', 'Lelang produk \'Boris Pena\' telah selesai. Pemenangnya adalah ahmad dengan tawaran Rp 12.456.', 0, '2025-06-04 10:38:06'),
+(21, 2, 4, 15, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 500 dari Garaka (email: rakaken58@gmail.com, HP: +6283115709409)', 0, '2025-06-04 12:35:13'),
+(22, 2, 1, 12, 'Lelang Selesai: Pemenang', 'Lelang produk \'Nash Parks\' telah selesai. Pemenangnya adalah ahmad dengan tawaran Rp 7.777.', 0, '2025-06-04 13:11:41'),
+(23, 4, 5, 20, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 300.000 dari alfia (email: alettaran53@gmail.com, HP: +6283115709409)', 0, '2025-06-04 23:01:53'),
+(24, 1, 3, 25, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 999.999.999.999 dari umar (email: umam@gmail.com, HP: +628124567)', 1, '2025-06-04 23:38:23'),
+(25, 3, NULL, 25, 'Anda Menang Lelang', 'Selamat, Anda memenangkan lelang produk handphone asus rog 8 dengan tawaran Rp 2.147.483.647', 0, '2025-06-04 23:39:02'),
+(26, 1, 3, 25, 'Lelang Selesai: Pemenang', 'Lelang produk \'handphone asus rog 8\' telah selesai. Pemenangnya adalah umar dengan tawaran Rp 2.147.483.647.', 0, '2025-06-04 23:39:02'),
+(27, 3, NULL, 25, 'Pembelian Diproses: handphone asus rog 8', 'Proses pembelian untuk produk \'handphone asus rog 8\' telah dimulai. Silakan lanjutkan konfirmasi dengan penjual melalui WhatsApp. ID Pembayaran Anda: gdrK9f03d4', 0, '2025-06-04 23:40:18'),
+(28, 1, 3, 25, 'Produk Anda Dibeli: handphone asus rog 8', 'Produk Anda \'handphone asus rog 8\' telah dibeli oleh umar. ID Pembayaran: gdrK9f03d4. Harap segera hubungi pembeli.', 0, '2025-06-04 23:40:18'),
+(29, 2, NULL, 27, 'Pembelian Diproses: hp rog 8', 'Proses pembelian untuk produk \'hp rog 8\' telah dimulai. Silakan lanjutkan konfirmasi dengan penjual melalui WhatsApp. ID Pembayaran Anda: av1wgC4S7M', 0, '2025-06-05 02:30:34'),
+(30, 7, 2, 27, 'Produk Anda Dibeli: hp rog 8', 'Produk Anda \'hp rog 8\' telah dibeli oleh khair. ID Pembayaran: av1wgC4S7M. Harap segera hubungi pembeli.', 0, '2025-06-05 02:30:34'),
+(31, 2, 1, NULL, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 999.999 dari ahmad (email: ahmad@gmail.com, HP: +628312316556)', 0, '2025-06-05 02:36:27'),
+(32, 2, 1, NULL, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 12.345.678 dari ahmad (email: ahmad@gmail.com, HP: +628312316556)', 0, '2025-06-05 02:37:14'),
+(33, 2, 7, NULL, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 12.345.678.912.345.678 dari tegar potret (email: zamzamitgr@gmail.com, HP: +6283115709409)', 0, '2025-06-05 02:38:20'),
+(34, 2, 7, 15, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 12.345.678.234.567 dari tegar potret (email: zamzamitgr@gmail.com, HP: +6283115709409)', 0, '2025-06-05 02:42:52'),
+(35, 4, 7, 20, 'Tawaran Baru di Lelang', 'Ada tawaran baru Rp 400.000 dari tegar potret (email: zamzamitgr@gmail.com, HP: +6283115709409)', 0, '2025-06-05 02:46:45'),
+(36, 2, NULL, 27, 'Pembelian Diproses: hp rog 8', 'Proses pembelian untuk produk \'hp rog 8\' telah dimulai. Silakan lanjutkan konfirmasi dengan penjual melalui WhatsApp. ID Pembayaran Anda: yroMBLkcAB', 0, '2025-06-05 02:48:02'),
+(37, 7, 2, 27, 'Produk Anda Dibeli: hp rog 8', 'Produk Anda \'hp rog 8\' telah dibeli oleh khair. ID Pembayaran: yroMBLkcAB. Harap segera hubungi pembeli.', 0, '2025-06-05 02:48:02'),
+(38, 2, NULL, 18, 'Pembelian Diproses: Boneka Lucu', 'Proses pembelian untuk produk \'Boneka Lucu\' telah dimulai. Silakan lanjutkan konfirmasi dengan penjual melalui WhatsApp. ID Pembayaran Anda: qNOmdwewam', 0, '2025-06-05 02:55:40'),
+(39, 4, 2, 18, 'Produk Anda Dibeli: Boneka Lucu', 'Produk Anda \'Boneka Lucu\' telah dibeli oleh khair. ID Pembayaran: qNOmdwewam. Harap segera hubungi pembeli.', 0, '2025-06-05 02:55:40');
 
 -- --------------------------------------------------------
 
@@ -239,11 +279,15 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`id_pembayaran`, `id_produk`, `id_user`, `waktu_pembayaran`) VALUES
+('av1wgC4S7M', 27, 2, '2025-06-05 10:30:34'),
 ('ev3q1wujFf', 1, 2, '2025-06-04 13:55:57'),
+('gdrK9f03d4', 25, 3, '2025-06-05 07:40:18'),
 ('gK6jJk0pPku', 2, 1, '2025-06-04 15:28:41'),
 ('jqpz3fDXV9w', 1, 2, '2025-06-04 14:04:29'),
 ('lHpAyYhh8rM', 1, 2, '2025-06-04 16:01:33'),
-('Ouao9ucG3Ptf', 2, 1, '2025-06-04 16:03:55');
+('Ouao9ucG3Ptf', 2, 1, '2025-06-04 16:03:55'),
+('qNOmdwewam', 18, 2, '2025-06-05 10:55:40'),
+('yroMBLkcAB', 27, 2, '2025-06-05 10:48:02');
 
 -- --------------------------------------------------------
 
@@ -273,23 +317,33 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `id_user`, `judul`, `deskripsi`, `harga`, `alamat`, `id_kategori`, `id_jenis_produk`, `id_kondisi`, `status`, `created_at`, `updated_at`, `city`, `lelang_end_time`) VALUES
-(1, 1, 'sepatu', 'asdfghjk', 123456789.00, 'jl. pejanggik', 1, 2, 2, 'inactive', '2025-06-04 01:05:22', '2025-06-04 16:01:33', 'selong, lombok timur', NULL),
-(2, 2, 'Lysandra Morris', 'Voluptas voluptatem', 23456.00, 'Quidem ex reprehende', 1, 4, 1, 'active', '2025-06-04 08:24:51', '2025-06-04 16:06:01', '0', NULL),
+(1, 1, 'sepatu', 'Sepatu bekas merek Nike, model sporty kasual, cocok untuk aktivitas sehari-hari maupun olahraga ringan. Warna dominan hitam dengan aksen putih, tampilan masih cukup baik meskipun terdapat sedikit goresan pada bagian sol dan tanda pemakaian di bagian dalam. Ukuran 42 (EU), nyaman dipakai dan masih layak fungsi. Sol masih empuk dan tidak licin. Cocok bagi yang ingin tampil sporty dengan budget terbatas.', 1200000.00, 'jl. pejanggik', 1, 2, 2, 'active', '2025-06-04 01:05:22', '2025-06-05 07:32:39', 'selong, lombok timur', NULL),
+(2, 2, 'Lysandra Morris', 'Voluptas voluptatem', 23456.00, 'Quidem ex reprehende', 1, 4, 1, 'inactive', '2025-06-04 08:24:51', '2025-06-05 07:55:54', '0', NULL),
 (3, 2, 'September Knight', 'Voluptates ratione q', 928.00, 'Dolores ex aut cupid', 1, 5, 1, 'active', '2025-06-04 16:54:23', '2025-06-04 16:54:23', 'Assumenda in omnis a', NULL),
-(4, 2, 'Jeanette Hall', 'Quia magni quia porr', 476.00, 'Eius labore labore l', 1, 3, 3, 'active', '2025-06-04 17:09:50', '2025-06-04 17:09:50', 'Dignissimos omnis et', NULL),
-(5, 2, 'Shaine Ortiz', 'Ut expedita perspici', 0.00, 'Magna harum expedita', 3, 2, 1, 'active', '2025-06-04 17:10:16', '2025-06-04 17:10:16', 'Tenetur cillum rerum', NULL),
-(6, 2, 'Regan Palmer', 'Mollit amet ut pari', 0.00, 'Aspernatur et impedi', 3, 6, 1, 'active', '2025-06-04 17:10:52', '2025-06-04 17:10:52', 'Blanditiis dolor mai', NULL),
-(7, 2, 'Hamish Sykes', 'Hic minim odit sed d', 0.00, 'Quis atque aliquid d', 3, 1, 2, 'active', '2025-06-04 17:18:12', '2025-06-04 17:18:12', 'Nobis iure nisi mole', NULL),
-(8, 2, 'asdfg', 'asdfgh', 1234567.00, 'qwerty', 3, 2, 4, 'active', '2025-06-04 17:46:46', '2025-06-04 17:46:46', 'mataram', NULL),
-(9, 2, 'istri gue', 'qwertyuioasglzxcvbnm', 9999999999999.99, 'asdfghjk', 3, 6, 1, 'active', '2025-06-04 17:58:52', '2025-06-04 18:09:21', 'mataram', '2025-06-11 17:09:00'),
-(10, 1, 'sdf', 'gh', 245.00, 'ad', 1, 3, 3, 'active', '2025-06-04 18:06:17', '2025-06-04 18:06:17', 'a', NULL),
-(11, 2, 'Wang Frederick', 'Non eiusmod sed dolo', 1523.00, 'Ut nostrum enim in q', 3, 1, 4, 'active', '2025-06-04 18:19:18', '2025-06-04 18:20:03', 'Non quasi nemo omnis', '2025-06-05 18:19:00'),
-(12, 2, 'Nash Parks', 'Possimus adipisicin', 7777.00, 'Veritatis numquam is', 3, 1, 1, 'active', '2025-06-04 18:22:22', '2025-06-04 18:22:38', 'Ullamco sunt ea eum ', '2025-06-04 18:25:00'),
-(13, 2, 'Leo Torres', 'Unde aperiam vero au', 2345678.00, 'Voluptatem eiusmod ', 3, 4, 2, 'active', '2025-06-04 18:27:53', '2025-06-04 18:28:27', 'Maiores sed dolores ', '2025-06-04 18:29:00'),
-(14, 2, 'Dominique Curtis', 'Id sequi itaque aut ', 12345678.00, 'Possimus fugiat dol', 3, 3, 2, 'active', '2025-06-04 18:31:34', '2025-06-04 18:31:51', 'Dolorum aute lorem a', '2025-06-04 18:33:00'),
-(15, 2, 'Morgan Sellers', 'Elit consectetur im', 398.00, 'Ratione reprehenderi', 3, 5, 3, 'active', '2025-06-04 18:35:27', '2025-06-04 18:35:27', 'Similique proident ', '2025-06-07 18:35:00'),
-(16, 2, 'Boris Pena', 'Magnam facere alias ', 12456.00, 'Elit itaque volupta', 3, 5, 1, 'active', '2025-06-04 18:36:07', '2025-06-04 18:36:27', 'Dolore quo iste qui ', '2025-06-04 18:38:00'),
-(17, 2, 'asdfgh', 'sfgh', 0.00, 'afgh', 2, 2, 2, 'active', '2025-06-04 19:48:51', '2025-06-04 19:48:51', 'selong', NULL);
+(4, 2, 'Mas adit Mas adit', 'Manusia yang bisa bantu anda membuat stiker meme lucu', 476.00, 'Jl. Raya Praya No. 88, RT 003/RW 001, Kel. Jontlak, Kec. Praya, Kab. Lombok Tengah, Nusa Tenggara Barat, 83511', 1, 6, 3, 'active', '2025-06-04 17:09:50', '2025-06-04 21:14:21', 'Praya', NULL),
+(5, 2, 'Taoqi', 'istri gue', 9999999999999.99, '1-chome, Shibuya, Shibuya City, Tokyo 150-0002', 1, 6, 1, 'active', '2025-06-04 17:10:16', '2025-06-05 07:55:33', 'shibuya', NULL),
+(6, 2, 'Regan Palmer', 'Mollit amet ut pari', 0.00, 'Aspernatur et impedi', 3, 6, 1, 'inactive', '2025-06-04 17:10:52', '2025-06-04 21:12:01', 'Blanditiis dolor mai', NULL),
+(7, 2, 'Hamish Sykes', 'Hic minim odit sed d', 0.00, 'Quis atque aliquid d', 3, 1, 2, 'inactive', '2025-06-04 17:18:12', '2025-06-04 21:11:00', 'Nobis iure nisi mole', NULL),
+(8, 2, 'Women\\\'s Air Jordan 1 High OG', 'Yang terbaik ditempa dalam api. AJ1 \\\'Ruby\\\' ini merupakan penghormatan kepada sepatu yang memulai semuanya 40 tahun yang lalu.', 2000000.00, 'qwerty', 1, 2, 2, 'active', '2025-06-04 17:46:46', '2025-06-04 20:47:46', '0', NULL),
+(9, 2, 'istri gue', 'qwertyuioasglzxcvbnm', 9999999999999.99, 'asdfghjk', 3, 6, 1, 'active', '2025-06-04 17:58:52', '2025-06-05 07:23:31', 'lombok timur', '2025-06-11 17:09:00'),
+(10, 1, 'headphone', 'barang ', 100000.00, 'jl. imam bonjol', 1, 6, 3, 'active', '2025-06-04 18:06:17', '2025-06-05 07:21:25', 'selong', NULL),
+(11, 2, 'Wang Frederick', 'Non eiusmod sed dolo', 1523.00, 'Ut nostrum enim in q', 3, 1, 4, 'inactive', '2025-06-04 18:19:18', '2025-06-04 21:12:32', 'Non quasi nemo omnis', '2025-06-05 18:19:00'),
+(12, 2, 'Nash Parks', 'Possimus adipisicin', 7777.00, 'Veritatis numquam is', 3, 1, 1, 'inactive', '2025-06-04 18:22:22', '2025-06-04 21:11:47', 'Ullamco sunt ea eum ', '2025-06-04 18:25:00'),
+(13, 2, 'Leo Torres', 'Unde aperiam vero au', 2345678.00, 'Voluptatem eiusmod ', 3, 4, 2, 'inactive', '2025-06-04 18:27:53', '2025-06-04 21:11:21', 'Maiores sed dolores ', '2025-06-04 18:29:00'),
+(14, 2, 'Dominique Curtis', 'Id sequi itaque aut ', 12345678.00, 'Possimus fugiat dol', 3, 3, 2, 'inactive', '2025-06-04 18:31:34', '2025-06-04 20:58:19', 'Dolorum aute lorem a', '2025-06-04 18:33:00'),
+(15, 2, 'Bang Padang', 'sosok penunggu kampus yang bisa membantu anda untuk mengerjakan tugas dan mengantar membeli geprek', 9999999999999.99, 'Jl. Pejanggik No. 21, RT 001/RW 002, Kel. Cakranegara Timur, Kec. Cakranegara, Kota Mataram, Nusa Tenggara Barat, 83231', 3, 6, 3, 'active', '2025-06-04 18:35:27', '2025-06-05 10:42:52', 'Mataram', '2025-06-07 18:35:00'),
+(16, 2, 'Boris Pena', 'Magnam facere alias ', 12456.00, 'Elit itaque volupta', 3, 5, 1, 'inactive', '2025-06-04 18:36:07', '2025-06-04 20:57:59', 'Dolore quo iste qui ', '2025-06-04 18:38:00'),
+(17, 2, 'Buku gratis', '4 buku dengan bermacam genre', 0.00, 'Jl. Raya Praya No. 88, RT 003/RW 001, Kel. Jontlak, Kec. Praya, Kab. Lombok Tengah, Nusa Tenggara Barat, 83511', 2, 5, 2, 'active', '2025-06-04 19:48:51', '2025-06-05 07:22:58', 'praya, lombok tengah', NULL),
+(18, 4, 'Boneka Lucu', 'Boneka Lucu yang bisa menemani harimu dengan nyanyiannya ', 0.00, 'Jln. Angsoka II Kel. Mataram Barat Kec. Selaparang', 2, 6, 2, 'inactive', '2025-06-04 20:37:47', '2025-06-05 10:55:40', 'Mataram', NULL),
+(19, 2, 'Batu akik biru laut', 'Dibuka kesempatan langka untuk memiliki batu akik biru laut asli dengan kualitas premium. Batu akik ini menampilkan warna biru laut yang jernih dan memukau, menyerupai keindahan ombak laut yang tenang dan segar. Batu ini merupakan batu alam natural, bukan sintetis, dengan pancaran warna yang kuat dan motif alami yang unik, menjadikannya koleksi yang sangat langka dan bernilai tinggi', 1000000.00, 'Jl. TGH. Abdul Kadir Jaelani No. 10, RT 002/RW 005, Kel. Pancor, Kec. Selong, Kab. Lombok Timur, Nusa Tenggara Barat, 83612', 3, 6, 3, 'active', '2025-06-04 21:19:03', '2025-06-04 21:19:03', 'Selong', '2025-06-07 21:18:00'),
+(20, 4, 'Jam  Stainless ', 'Dilelang sebuah jam tangan eksklusif dengan desain unik dan futuristik. Jam tangan ini terbuat dari material stainless steel berkualitas tinggi, menampilkan motif gelang bergelombang yang artistik dan modern. Bagian dial berwarna putih bersih dengan detail penanda waktu minimalis, serta sub-dial kecil yang menambah kesan elegan dan fungsionalitas.\\\\\\\\r\\\\\\\\n\\\\\\\\r\\\\\\\\nDesain gelang bergelombang memberikan kesan dinamis dan berbeda dari jam tangan pada umumnya, sangat cocok bagi Anda yang ingin tampil menonjol dan berkelas. Jam tangan ini cocok digunakan untuk berbagai acara formal maupun kasual, serta menjadi koleksi istimewa bagi para pecinta fashion dan aksesori unik.\\\\\\\\r\\\\\\\\n\\\\\\\\r\\\\\\\\nKondisi barang sangat baik, siap pakai, dan menjadi pilihan tepat untuk Anda yang mencari jam tangan dengan nilai estetika tinggi dan tampilan yang tidak pasaran. Jangan lewatkan kesempatan untuk memiliki jam tangan stainless steel gelombang eksklusif ini melalui lelang terbatas!', 400000.00, 'Jl. Raya Tanjung No. 5A, RT 004/RW 002, Kel. Tanjung, Kec. Tanjung, Kab. Lombok Utara, Nusa Tenggara Barat, 83353', 3, 1, 2, 'active', '2025-06-04 21:25:10', '2025-06-05 10:46:45', 'Lombok Utara', '2025-06-11 21:24:00'),
+(21, 4, 'Jaket winter', 'Bersiaplah menghadapi cuaca dingin dengan gaya dan kenyamanan maksimal! Jaket puffer Nike original ini adalah pilihan sempurna untuk menjaga Anda tetap hangat dan modis. Desainnya yang klasik dengan warna hitam solid mudah dipadukan dengan berbagai outfit.Fitur Unggulan:Kain Tahan Air/Angin: Melindungi Anda dari elemen cuaca. Isian Puffer Berkualitas: Memberikan insulasi superior untuk kehangatan optimal.Desain Ergonomis: Memberikan kebebasan bergerak dan kenyamanan sepanjang hari.Logo Nike Bordir: Menambah sentuhan autentik pada jaket.', 200000.00, 'Jl. Kecubung No. 13, Gomong Lama, Kec. Selaparang, Kota Mataram, NTB', 3, 2, 2, 'active', '2025-06-04 21:30:28', '2025-06-05 07:04:46', 'Mataram', '2025-06-11 21:29:00'),
+(22, 4, 'Al-Quran', 'Al-quran baru terdapat bacaan terjemahan dan beserta tanda tanda tajwidnya', 0.00, 'Jl. Majapahit No. 62, Kota Mataram, NTB', 2, 5, 1, 'active', '2025-06-04 21:43:27', '2025-06-04 21:43:27', 'Mataram', NULL),
+(23, 5, 'Blender yamaha', 'Blender yamaha yang bisa melaju sangat melaju kencang saat memblender bumbu dah jus', 0.00, 'Jl. Langko No. 68A, Kota Mataram, NTB 83114', 2, 1, 2, 'active', '2025-06-04 21:55:05', '2025-06-04 21:55:05', 'Mataram', NULL),
+(24, 5, 'Sweater Bebek', 'ukuran M, warna Biru', 90000.00, 'Jl. Gajahmada No. 41, Pagesangan, Kec. Mataram, Kota Mataram, NTB', 1, 2, 1, 'active', '2025-06-05 03:46:36', '2025-06-05 03:47:52', 'Mataram', NULL),
+(25, 1, 'handphone asus rog 8', 'ASUS ROG Phone 8 adalah smartphone gaming flagship yang dirancang untuk memberikan performa maksimal bagi para gamer dan pengguna yang menginginkan kinerja tinggi dalam satu perangkat.\\r\\n\\r\\n⚙️ Spesifikasi Utama\\r\\nProsesor: Qualcomm Snapdragon 8 Gen 3 (Octa-core, hingga 3.3GHz)\\r\\n\\r\\nRAM: 12GB LPDDR5X\\r\\n\\r\\nPenyimpanan: 256GB UFS 4.0\\r\\n\\r\\nLayar: 6,78 inci FHD+ (2400x1080) AMOLED fleksibel dari Samsung\\r\\n\\r\\nRefresh rate hingga 165Hz\\r\\n\\r\\nKecerahan puncak 2.500 nits\\r\\n\\r\\nMendukung HDR10 dan Always-On Display\\r\\n\\r\\nKamera Belakang:\\r\\n\\r\\n50MP (Sony IMX890) dengan 6-Axis Hybrid Gimbal Stabilizer 3.0\\r\\n\\r\\nLensa ultrawide dan telefoto\\r\\n\\r\\nKamera Depan: 32MP\\r\\n\\r\\nBaterai: 5.500 mAh dengan pengisian cepat 65W\\r\\n\\r\\nSistem Operasi: Android 14 dengan ROG UI\\r\\n\\r\\nFitur Tambahan:\\r\\n\\r\\nSertifikasi IP68 (tahan debu dan air)\\r\\n\\r\\nLogo RGB di bagian belakang\\r\\n\\r\\nGaming triggers sensitif tekanan', 999999999999.00, 'jl.terara', 3, 1, 2, 'active', '2025-06-05 07:38:05', '2025-06-05 07:41:29', 'terara, lombok timur', '2025-06-05 07:39:00'),
+(26, 3, 'Mitsubishi Pajero', 'Mitsubishi Pajero adalah mobil SUV legendaris yang dikenal dengan performa tangguh di berbagai medan, baik on-road maupun off-road. Ditenagai mesin diesel turbo yang bertenaga, Pajero menghadirkan kombinasi antara kenyamanan berkendara dan ketangguhan kendaraan petualang. Desain eksteriornya gagah dengan garis tegas dan bodi besar, mencerminkan karakter maskulin dan elegan.\\r\\n\\r\\nInterior Pajero luas dan mewah, dilengkapi dengan fitur-fitur modern seperti sistem audio premium, AC double blower, kursi kulit, dan sistem keamanan canggih. Suspensi yang empuk serta sistem penggerak 4WD membuat mobil ini andal di berbagai kondisi jalan.\\r\\n\\r\\nPajero sangat cocok untuk keluarga maupun pengemudi yang membutuhkan kendaraan kuat, aman, dan nyaman untuk perjalanan jauh maupun medan berat.', 100000000.00, 'Jl. Raya Praya - KopangKabupaten Lombok Tengah', 1, 4, 1, 'active', '2025-06-05 07:52:49', '2025-06-05 07:52:49', 'Kopang, lombok tengah', NULL),
+(27, 7, 'hp rog 8', 'asus rog 8', 200000.00, 'JL.Gajah Mada', 1, 1, 2, 'active', '2025-06-05 10:19:53', '2025-06-05 10:48:08', 'Mataram', NULL);
 
 -- --------------------------------------------------------
 
@@ -315,7 +369,12 @@ INSERT INTO `tawaran` (`id_tawaran`, `id_produk`, `id_user`, `jumlah_tawaran`, `
 (3, 12, 1, 7777, '2025-06-04 18:22:38'),
 (4, 13, 1, 2345678, '2025-06-04 18:28:27'),
 (5, 14, 1, 12345678, '2025-06-04 18:31:51'),
-(6, 16, 1, 12456, '2025-06-04 18:36:27');
+(6, 16, 1, 12456, '2025-06-04 18:36:27'),
+(7, 15, 4, 500, '2025-06-04 20:35:13'),
+(8, 20, 5, 300000, '2025-06-05 07:01:53'),
+(9, 25, 3, 2147483647, '2025-06-05 07:38:23'),
+(13, 15, 7, 2147483647, '2025-06-05 10:42:52'),
+(14, 20, 7, 400000, '2025-06-05 10:46:45');
 
 -- --------------------------------------------------------
 
@@ -344,9 +403,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `profile_image`, `created_at`, `updated_at`, `nomor_hp`, `alamat`, `city`, `bio`, `id_lokasi`, `role`) VALUES
-(1, 'ahmad', 'ahmad@gmail.com', '8de13959395270bf9d6819f818ab1a00', '../uploads/profile/1_1748970345_test.jpg', '2025-06-04 00:54:11', '2025-06-04 01:05:45', '+628312316556', NULL, 'mataram', NULL, NULL, ''),
-(2, 'khair', 'khair@gmail.com', '09166e1870d01680f8e2debde8fc5032', NULL, '2025-06-04 08:14:17', '2025-06-04 18:54:20', '+628234567', '', 'mataram', NULL, NULL, 'admin'),
-(3, 'umar', 'umam@gmail.com', '68e8792c50234aff1ca5b2d824a3bf89', NULL, '2025-06-04 18:40:16', '2025-06-04 18:58:12', '+628124567', NULL, 'mataram', NULL, NULL, 'user');
+(1, 'ahmad', 'ahmad@gmail.com', '8de13959395270bf9d6819f818ab1a00', '../uploads/profile/1_1748970345_test.jpg', '2025-06-04 00:54:11', '2025-06-05 10:25:06', '+628312316556', NULL, 'mataram', NULL, NULL, 'admin'),
+(2, 'khair', 'khair@gmail.com', '09166e1870d01680f8e2debde8fc5032', '../uploads/profile/2_1749062393_noah.jpg', '2025-06-04 08:14:17', '2025-06-05 07:30:28', '+6283123163556', 'Jl. Pejanggik No.16Pejanggik, Kec. Mataram, Kota Mataram, Nusa Tenggara Bar. 83122', 'mataram', NULL, NULL, 'admin'),
+(3, 'umar', 'umam@gmail.com', '68e8792c50234aff1ca5b2d824a3bf89', '../uploads/profile/3_1749080058_download.jpg', '2025-06-04 18:40:16', '2025-06-05 07:34:18', '+628124567', NULL, 'mataram', NULL, NULL, 'user'),
+(4, 'Garaka', 'rakaken58@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '../uploads/profile/4_1749040562_pipa.jpg', '2025-06-04 20:29:28', '2025-06-04 20:36:02', '+6283115709409', NULL, 'Mataram', NULL, NULL, NULL),
+(5, 'alfia', 'alettaran53@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '../uploads/profile/5_1749045148_mbek.jpg', '2025-06-04 21:51:55', '2025-06-04 21:52:28', '+6283115709409', NULL, 'Mataram', NULL, NULL, NULL),
+(6, 'kaneki ken', 'kanekiken@gmail.com', '202cb962ac59075b964b07152d234b70', '../uploads/profile/6_1749059409_ken.jpg', '2025-06-05 01:38:24', '2025-06-05 01:50:09', '+6283115709409', NULL, 'Mataram', NULL, NULL, NULL),
+(7, 'tegar potret', 'zamzamitgr@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '../uploads/profile/7_1749091976_adit.jpg', '2025-06-05 10:17:13', '2025-06-05 10:52:56', '+6283115709409', '', 'mataram', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -445,7 +508,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `image_produk`
 --
 ALTER TABLE `image_produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `jenis_produk`
@@ -463,7 +526,7 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `kondisi`
@@ -475,31 +538,31 @@ ALTER TABLE `kondisi`
 -- AUTO_INCREMENT untuk tabel `laporan_transaksi`
 --
 ALTER TABLE `laporan_transaksi`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `tawaran`
 --
 ALTER TABLE `tawaran`
-  MODIFY `id_tawaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_tawaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
